@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Button from "./Components/Button";
+import { useState } from "react";
+import Post from "./Components/Post";
 
 function App() {
+  const [text, setText] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Button />
+      <button></button>
+      <input
+        onChange={(e) => setText(e.target.value)}
+        type="text"
+        value={text}
+      />
+      <h1>{text}</h1> */}
+      {/* <input placeholder="Write text.." type="text" /> */}
+      <form>
+        <textarea type="input" placeholder="Write text.."></textarea>
+      </form>
+      <div className="postLength">
+        <h1>Post Titles Length is</h1>
+        <span>0</span>
+      </div>
+      <Post />
     </div>
   );
 }
