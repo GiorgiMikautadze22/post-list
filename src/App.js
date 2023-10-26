@@ -1,30 +1,37 @@
 import "./App.css";
-import Button from "./Components/Button";
 import { useState } from "react";
 import Post from "./Components/Post";
+import Input from "./Components/Input";
+import Actions from "./Actions";
 
 function App() {
-  const [text, setText] = useState("");
+  const { text, posts, handleKeyDown, handleChange, handleDelete, postLength } =
+    Actions();
 
   return (
     <div className="App">
-      {/* <Button />
-      <button></button>
-      <input
-        onChange={(e) => setText(e.target.value)}
-        type="text"
-        value={text}
+      <Input
+        text={text}
+        handleChange={handleChange}
+        handleKeyDown={handleKeyDown}
       />
-      <h1>{text}</h1> */}
-      {/* <input placeholder="Write text.." type="text" /> */}
-      <form>
-        <textarea type="input" placeholder="Write text.."></textarea>
-      </form>
       <div className="postLength">
         <h1>Post Titles Length is</h1>
-        <span>0</span>
+        {/* {posts.map((el) => {
+          return <span key={el.id}>{el.length}</span>;
+        })} */}
+        <span>{postLength}</span>;
       </div>
-      <Post />
+      {posts.map((el) => {
+        return (
+          <Post
+            handleDelete={handleDelete}
+            content={el}
+            key={el.id}
+            postNum={el}
+          />
+        );
+      })}
     </div>
   );
 }

@@ -20,7 +20,7 @@ body {
 
 textarea {
   width: 80%;
-  height: 50px;
+  height: 150px;
   border-radius: 15px;
   padding-left: 20px;
   border: none;
@@ -30,6 +30,7 @@ textarea {
   margin: auto;
   margin-top: 80px;
   padding-top: 12px;
+  resize: none;
 }
 
 .postLength {
