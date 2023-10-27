@@ -8,6 +8,7 @@ const Actions = () => {
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
+
       setPosts([
         ...posts,
         {
@@ -16,17 +17,18 @@ const Actions = () => {
           textLength: text.length,
         },
       ]);
-
-      //   if (posts.length === 0) {
-      //     setPostLength(text.length);
-      //   } else {
-      //     posts.map((el) => {
-      //       setPostLength(postLength + el.textLength);
-      //       console.log(postLength);
-      //     });
-      //   }
-
+      console.log(posts);
+      // if (posts.length === 0) {
+      //   setPostLength(postLength + text);
+      // } else {
+      //   setPostLength("");
+      //   posts.map((post) => {
+      //     return setPostLength(postLength + post.title);
+      //   });
+      // }
       setPostLength(postLength + text.length);
+
+      console.log(postLength);
 
       setText("");
     }
@@ -38,12 +40,8 @@ const Actions = () => {
 
   const handleDelete = (postId) => {
     setPosts(posts.filter((post) => post.id !== postId.id));
-    posts.map((post) => {
-      if (post.id !== postId.id) {
-        setPostLength(postLength - post.textLength);
-        console.log(postLength);
-      }
-    });
+    setPostLength("");
+    setPostLength(postLength - postId.title.length);
   };
 
   return {
